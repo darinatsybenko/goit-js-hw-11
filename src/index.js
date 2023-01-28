@@ -32,28 +32,23 @@ const lightbox = new SimpleLightbox('.gallery a');
 const observer = new IntersectionObserver(onIntersect, options);
 
 async function onIntersect(entries, observer) {
-  entries.forEach(entry => {
+  entries.forEach(async entry => {
     if (entry.isIntersecting) {
       if (!searchName) {
         return;
       }
 
       page += 1;
-      fetchPictures(page)
-        .then(({ totalHits, hits }) => {
-          createMarkup({ totalHits, hits });
-          lightbox.refresh();
+      const { totalHits, hits } = await fetchPictures(page);
+      createMarkup({ totalHits, hits });
+      lightbox.refresh();
 
-          if (totalHits <= page * perPage && totalHits > 0) {
-            observer.unobserve(refs.guard);
-            Notify.info(
-              "We're sorry, but you've reached the end of search results."
-            );
-          }
-        })
-        .catch(err => {
-          console.log(err);
-        });
+      if (totalHits <= page * perPage && totalHits > 0) {
+        observer.unobserve(refs.guard);
+        Notify.info(
+          "We're sorry, but you've reached the end of search results."
+        );
+      }
     }
   });
 }
@@ -105,7 +100,7 @@ function createMarkup({ hits }) {
   const markup = hits
     .map(picture => {
       return `<a href="${picture.largeImageURL}"><div class="photo-card">
-      <img class="photo-img" src="${picture.webformatURL}" alt="${picture.tags}" loading="lazy" width="300"/>
+      <img class="photo-img" src="${picture.webformatURL}" alt="${picture.tags}" loading="lazy" />
       <div class="info">
         <p class="info-item">
           <b>Likes</b> <span>${picture.likes}</span>
