@@ -1,28 +1,27 @@
 body {
-    background-color: #515151;
+    background-color: #f8f7f7;
 }
 
 .search-form>input {
     display: block;
-    width: 400px;
+    width: 200px;
     height: 50px;
     padding: 0 30px;
 
     font-family: monospace;
-    font-size: 20px;
-    color: #ff652d;
+    font-size: 15px;
+    color: #080808;
 
     border-radius: 50px;
-    background: #515151;
+    background: #f8f7f7;
     outline: none;
-    transition: box-shadow 200ms;
+ 
 
 }
 
 .search-form>input:focus {
-    background: #515151;
-    box-shadow: inset 5px 5px 10px #303030,
-        inset -5px -5px 10px #727272;
+    background: #f8f7f7;
+    
 }
 
 
@@ -37,14 +36,13 @@ body {
     font-family: monospace;
     font-weight: bold;
     font-size: 20px;
-    color: #303030;
+    color: #8ae5d1;
 
     border: none;
     border-radius: 50px;
     border-radius: 50px;
-    background: linear-gradient(145deg, #494949, #575757);
-    box-shadow: 9px 9px 15px #303030,
-        -9px -19px 15px #727272;
+    
+  
     cursor: pointer;
     transition: color 200ms linear, box-shadow 50ms linear, text-shadow 200ms linear;
 }
@@ -55,8 +53,8 @@ body {
 }
 
 .search-form>button:active {
-    box-shadow: 5px 5px 10px #303030,
-        -5px -5px 10px #727272;
+    box-shadow: 5px 5px 10px #ac9898,
+        -5px -5px 10px #b08181;
 }
 
 
@@ -84,16 +82,11 @@ body {
 
 .photo-card {
     padding: 20px;
-    border-radius: 20px;
 
-    background: linear-gradient(145deg, #494949, #575757);
-    box-shadow: 3px 3px 7px #272727,
-        -3px -3px 7px #7b7b7b;
-    transition: box-shadow 200ms;
+
 }
 
 .photo-card:hover {
-    background: linear-gradient(145deg, #494949, #575757);
     box-shadow: 7px 7px 14px #272727,
         -7px -7px 14px #7b7b7b;
 }
